@@ -1,0 +1,17 @@
+{
+  "name": "audiosaver",
+  "fullName": "AudioSaver",
+  "id": "jid1-ufsuBVDht4sGQw",
+  "description": "AudioSaver save music when listen",
+  "author": "YouROK",
+  "license": "MPL 2.0",
+  "version": "0.1",
+  "icon": "audiosaver.png",
+  "preferences": [{
+        "name": "RootPath",
+        "title": "Path to music",
+        "description": "Save music in directory",
+        "type": "directory",
+        "value": ""
+    }]
+}
