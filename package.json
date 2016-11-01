@@ -1,17 +1,28 @@
 {
+  "title": "AudioSaver",
   "name": "audiosaver",
-  "fullName": "AudioSaver",
-  "id": "jid1-ufsuBVDht4sGQw",
-  "description": "AudioSaver save music when listen",
+  "version": "0.2.2",
+  "description": "Save all what you listen",
+  "main": "index.js",
   "author": "YouROK",
-  "license": "MPL 2.0",
-  "version": "0.1",
   "icon": "audiosaver.png",
+  "permissions": {
+    "multiprocess": true
+  },
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ],
+
   "preferences": [{
-        "name": "RootPath",
-        "title": "Path to music",
-        "description": "Save music in directory",
-        "type": "directory",
-        "value": ""
-    }]
+    "name": "TargetDir",
+    "title": "Directory to save audio",
+    "description": "",
+    "type": "directory",
+    "value": ""
+  }]
 }
