@@ -25,11 +25,11 @@ BinaryFile.prototype = {
       if (file.exists() == false)
         file.create(Ci.nsIFile.NORMAL_FILE_TYPE, 420);
       var foStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-      foStream.init(file, 0x02 | 0x08 | 0x20, 0666, 0);
+      foStream.init(file, 0x02 | 0x08 | 0x20, 0o666, 0);
       this.stream = foStream;
       return true;
     } catch (err) {
-      console.log("Error create file:", err);
+      // console.log("Error create file:", err);
       return false;
     }
   },
@@ -38,10 +38,10 @@ BinaryFile.prototype = {
       if (this.stream) {
         this.stream.write(data, count);
       } else {
-        console.log("Error file not created");
+         // console.log("Error file not created");
       }
     } catch (err) {
-      console.log("Error write file:",err);
+       // console.log("Error write file:",err);
     }
   },
   close: function() {
@@ -128,9 +128,9 @@ function mkdir(dir) {
   file.initWithPath(setSeparator(filePath));
   if (file.exists() == false)
     try {
-      file.create(Ci.nsIFile.DIRECTORY_TYPE, 0775);
+      file.create(Ci.nsIFile.DIRECTORY_TYPE, 0o775);
     } catch (err) {
-      console.log("Error mkdir", err);
+      // console.log("Error mkdir", err);
     }
   return file;
 }
@@ -140,7 +140,7 @@ function md5(fname) {
   var f = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
   f.initWithPath(setSeparator(path));
   var istream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-  istream.init(f, 0x01, 0444, 0);
+  istream.init(f, 0x01, 0o444, 0);
   var ch = Cc["@mozilla.org/security/hash;1"].createInstance(Ci.nsICryptoHash);
   ch.init(ch.MD5);
   const PR_UINT32_MAX = 0xffffffff;
@@ -162,7 +162,7 @@ function move(from, toDir, filename) {
     try {
       file.moveTo(toDir, filename);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   }
 }
